@@ -1,0 +1,51 @@
+<!-- /admin/admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control</title>
+</head>
+<body>
+    <h1>Game Control Page</h1>
+    <label for="outcome">Select Game Outcome:</label>
+    <select id="outcome">
+        <option value="win">Win</option>
+        <option value="lose">Lose</option>
+        <option value="random">Random</option>
+    </select>
+    <button id="updateOutcome">Update Outcome</button>
+    <p id="currentOutcome">Current Outcome: random</p>
+
+    <script>
+        // Function to update the outcome
+        function updateOutcome(outcome) {
+            fetch('/admin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ mode: outcome })
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('currentOutcome').textContent = `Current Outcome: ${outcome}`;
+                    alert('Game outcome updated successfully.');
+                }
+            });
+        }
+
+        // Add event listener to the update button
+        document.getElementById('updateOutcome').addEventListener('click', () => {
+            const selectedOutcome = document.getElementById('outcome').value;
+            updateOutcome(selectedOutcome);
+        });
+
+        // Fetch and display the current outcome on page load
+        fetch('/admin/current')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('currentOutcome').textContent = `Current Outcome: ${data.mode}`;
+            });
+    </script>
+</body>
+</html>

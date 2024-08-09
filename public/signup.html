@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"],
+        .container input[type="email"],
+        .container input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+
+        .container a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <div class="login-container">
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form action="/signup" method="POST" enctype="multipart/form-data">
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <input type="text" name="username" placeholder="Create a Username" required>
+                <input type="password" name="password" placeholder="Create a Password" required>
+                <input type="email" name="email" placeholder="Enter your Email" required>
+                <input type="file" name="profile_pic" accept="image/*">
+                <button type="submit">Sign Up</button><br><br>
+                <a href="login.html">Already have an account. Log In</a>
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <footer
+        style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 10px; background-color: #f4f4f4; border-top: 1px solid #ccc;font-weight: bold;margin-top: 20px;">
+        <p>&copy; 2024 <a href="https://www.facebook.com/profile.php?id=100092450641696&mibextid=ZbWKwL"
+                style="text-decoration: none; font-weight: bold;">Alish GC</a>. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
